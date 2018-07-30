@@ -47,8 +47,13 @@ def save_contact(plist):
     f.close()
 
 def load_contact(plist):
-    f=open("contact_db.txt","rt")
-    lines= f.readlines()
+    try:
+        f=open("contact_db.txt","rt")
+    except FileNotFoundError as e:
+        print("No data")
+        return
+    else:
+        lines = f.readlines()
     num=len(lines)
     for i in range(num):
         p=lines[i].split('\t')
