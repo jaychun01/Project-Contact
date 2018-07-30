@@ -49,7 +49,7 @@ def save_contact(plist):
 def load_contact(plist):
     try:
         f=open("contact_db.txt","rt")
-    except FileNotFoundError as e:
+    except FileNotFoundError:
         print("No data")
         return
     else:
@@ -65,9 +65,10 @@ def load_contact(plist):
         plist.append(person)
     f.close()
 
+
 def print_menu():
     print("------MENU------")
-    print("1. Type")
+    print("1. Add")
     print("2. Find")
     print("3. Delete")
     print("4. Quit")
